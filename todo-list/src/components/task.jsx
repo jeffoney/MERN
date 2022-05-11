@@ -1,39 +1,39 @@
 import React from 'react';
 
 const Task = (props) => {
-  const {task, index, list, setList} = props;
+const {task, index, list, setList} = props;
 
-  const onClick = () => {
+const onClick = () => {
     const newList = () => list.filter((task) => list.indexOf(task) !== index);
 
     setList(newList);
-  };
+};
 
-  const onChange = e => {
+const onChange = e => {
     list[index].isComplete = !list[index].isComplete;
     setList([...list]);
-  }
+}
 
-  return (
+return (
     <div>
-      <h4>{task.name}</h4>
-      <div>
+    <h4>{task.name}</h4>
+    <div>
         <label
-          style={{ textDecorationLine: task.isComplete ? "line-through" : 'none' }}
-          htmlFor="checkbox"
+        style={{ textDecorationLine: task.isComplete ? "line-through" : 'none' }}
+        htmlFor="checkbox"
         >
-          Completed?
+        Completed?
         </label>
         <input
-          onChange={onChange}
-          type="checkbox"
-          name=""
-          checked={task.isComplete}
+        onChange={onChange}
+        type="checkbox"
+        name=""
+        checked={task.isComplete}
         ></input>
         <button onClick={onClick}> X </button>
-      </div>
     </div>
-  );
+    </div>
+);
 }
 
 export default Task;
