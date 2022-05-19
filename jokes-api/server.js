@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 
-// req is short for request
-// res is short for response
-app.get("/api", (req, res) => {
-  res.send("Our express api server is now sending this over to the browser");
-});
+// This will fire our mongoose.connect statement to initialize our database connection
+require("./server/config/mongoose.config");
 
-const server = app.listen(8000, () =>
-  console.log(`Server is locked and loaded on port ${server.address().port}!`)
-);
+app.use(express.json(), express.urlencoded({ extended: true }));
+
+// This is where we import the joke routes function from our joke.routes.js file
+const AllMyJokeRoutes = require("./server/routes/joke.routes");
+AllMyJokeRoutes(app);
+
+app.listen(8000, () => console.log("The server is all fired up on port 8000"));
