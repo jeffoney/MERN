@@ -36,3 +36,18 @@ app.listen(port, () => console.log(`Listening on port: ${port}`) );
 npx create-react-app client
 
 <!-- Now that you have your React project built, you will be running two different servers: your front end React server with live reloading and your Express server. -->
+
+<!-- 
+Let's now start setting up our React project. Change directories into your React project, called client, and run the following: -->
+
+npm install axios
+
+
+
+
+
+<!-- This will install the ability to make cross-origin requests. Now, we will need to change our server.js as the following -->
+
+npm install cors
+
+

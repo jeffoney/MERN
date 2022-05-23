@@ -6,18 +6,18 @@
 const express = require('express'); 
 const cors = require('cors'); 
 
-// 2) Intiliazing Express instance ('app') and define auxiliar variables
+// 2) Initializing Express instance ('app') and define variables
 const app = express();
 const port = 8000; 
 
-// 3) Enabling cros-origin requests on Express server with client side
+// 3) Enabling cross-origin requests on Express server with client side
 app.use(cors());
 
 // 4) Enabling settings for being able to read JSON and parse data in body of POST requests
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// 5) Initializing connection to NoSQL database (MongoDB) using Moongose interface
+// 5) Initializing connection to NoSQL database (MongoDB) using Mongoose interface
 require("./config/mongoose.config");
 
 // 6) Importing API routes passing the Express instance 'app'
