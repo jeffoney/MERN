@@ -50,4 +50,4 @@ npm install axios
 
 npm install cors
 
-
+node server.js
