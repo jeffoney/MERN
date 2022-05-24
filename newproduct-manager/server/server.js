@@ -6,7 +6,7 @@
 const express = require('express'); 
 const cors = require('cors'); 
 
-// 2) Initializing Express instance ('app') and define auxiliar variables
+// 2) Initializing Express instance ('app') and define auxiliary variables
 const app = express();
 const port = 8000; 
 
