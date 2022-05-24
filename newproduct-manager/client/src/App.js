@@ -1,80 +1,42 @@
-import React,{useState, useEffect} from 'react'
+
+import './App.css';
 
 import {
-    Link
+  BrowserRouter as Router, 
+  Switch,
+  Route, 
+  Redirect
 } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 
-import DeleteButton from './DeleteButton'
+import Main from './views/Main'
+import Detail from './views/Detail'
+import Edit from './views/Edit'
 
-import axios from 'axios';
-import _ from 'lodash';
+function App() {
+  
+  const history = createBrowserHistory();
 
-const ProductList = (props) => {
-    
-    //-----------------------------------
-    // I) HOOKS & VARIABLES
-    // ----------------------------------
-
-    // i) Lifting States
-    const {isUpdatingProducts, setIsUpdatingProducts} = props;
-
-    // ii) React Hooks - States
-    const [productsList, setProductList] = useState([]);
-
-    // iii) React Hooks - Effects
-    
-    const getAllProducts = async () => {
-        await axios.get('http://localhost:8000/api/products')
-        .then(res=>{
-            console.log(res.data)
-            setProductList(res.data);
-            setIsUpdatingProducts(false)
-        }); 
-    }
-
-    useEffect(()=>{
-        console.log(isUpdatingProducts)
-        if(isUpdatingProducts)
-            getAllProducts();
-    },[isUpdatingProducts])
-
-    //-----------------------------------
-    // II) HANDLERS
-    // ----------------------------------
-
-
-    //-----------------------------------
-    // III) JSX
-    // ----------------------------------
-
-    return (
-        <div>
-            <h3> All Products: </h3>
-            <div>
-                
-            {productsList.map((product, index) => 
-                <p className="my-2" key={index}>
-                    
-                        <Link className="text-dark mx-1" to = {"/products/"+product._id}>
-                            <u>{product.title}</u>
-                        </Link>
-                        | 
-                        <Link className="mx-1 btn btn-success btn-sm py-0" to = {"/products/edit/"+product._id}>
-                            Edit
-                        </Link>
-                        | 
-                        <DeleteButton 
-                            product = {product}
-                            changeStyle = {false}
-                            setIsUpdatingProducts = {setIsUpdatingProducts}
-                        />
-                    
-                </p>
-            )}
-
-            </div>
-        </div>
-    )
+  return (
+    <div className="App">
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/products">
+            <Main/>
+          </Route>
+          <Route exact path="/products/:id">
+            <Detail/>
+          </Route>
+          <Route exact path="/products/edit/:id">
+            <Edit/>
+          </Route>
+          {/* <Route path="/">
+            <Redirect to="/products"/>
+          </Route> */}
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
-export default ProductList
+export default App;
