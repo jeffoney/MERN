@@ -4,7 +4,7 @@ import PetForm from '../components/PetForm';
 import PetList from '../components/PetList';
 import PetInfo from '../components/PetInfo'; 
 import EditPetForm from '../components/EditPetForm';
-// import { Router, Link } from '@reach/router';
+import { Router, Link } from '@reach/router';
 
 export default () => {
     return (
