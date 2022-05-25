@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-// import { Link } from '@reach/router';
+import { Link } from '@reach/router';
+
 
 
 export default props => {
