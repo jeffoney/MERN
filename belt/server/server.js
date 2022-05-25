@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: true}));
 require("./config/mongoose.config");
 
 // 6) Importing API routes passing the Express instance 'app'
-require("./routes/product.routes")(app);
+require("./routes/pet.routes")(app);
 
 // 7) Running instance of Express server in selected port
 app.listen(port, () => {
