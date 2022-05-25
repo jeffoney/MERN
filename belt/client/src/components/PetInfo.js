@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { navigate } from '@reach/router';
+// import { navigate } from '@reach/router';
 
 
 export default props => {
