@@ -21,7 +21,7 @@ export default props => {
     return(
         <div className="container">
             <h1>Pet Shelter</h1>
-            <h3>These pets are looking for a home</h3>
+            <h3>These Pets are looking for a good home!</h3>
             <table className="table table-hover table-striped">
                 <tbody>
                     <tr>

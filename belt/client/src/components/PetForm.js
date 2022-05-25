@@ -51,7 +51,7 @@ export default () => {
                 </div>
 
                 <div className="form-group">
-                    <label>Pet Type</label>
+                    <label>Breed / Species</label>
                     <input type="text" onChange = {e => setType(e.target.value)} className="form-control" />
                     <span className="text-danger">{errors.type ? errors.type.message: "" }</span>
                 </div>
